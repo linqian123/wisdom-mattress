@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="ace/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome2.min.css" />
+	<link rel="stylesheet" href="ace/css/ace.min.css" />
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="ace/js/bootstrap.min.js"></script>
+	<script src="textSlider/jQuery.textSlider.js"></script>
+	<style>
+		body,html{
+			margin:0;
+			padding:0;
+		}
+		ul{list-style: none;}
+		.page-content{padding:15px 40px 0;width:85%;}
+		.red { background: #ff6c60;}
+		.yellow { background: #f8d347;}
+		.green{ background-color:#093}
+		.blue {background: #57c8f2;}
+		.title{
+			padding:15px;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.mointor{overflow:hidden;padding-top: 10px;}
+		.mointor ul{
+			width:800px;
+		}
+		.mointor .content{
+			padding-top: 15px;
+			padding-left: 120px;
+		}
+		.mointor li{
+			width:280px;
+			border:1px solid #dddddd;
+			float:left;
+			margin-right: 50px;
+			margin-bottom:25px;
+		}
+		.mointor i{
+			font-size: 35px;
+			color:#fff;
+		}
+		.mointor span{
+			float:left;
+			text-align: center;
+		}
+		.mointor span.symbol{
+			width:40%;
+			padding: 25px 15px; 
+			-webkit-border-radius: 4px 0px 0px 4px;
+			border-radius: 4px 0px 0px 4px;
+		}
+		.mointor span.value{
+			width:55%;
+		}
+		.today{overflow: auto;padding-top: 20px;}
+		.today li{
+			font-size: 17px;
+			padding:10px;
+		}
+		.today .content{
+			background-color: rgba(0,0,0,0.8);
+			color:#fff;
+			margin-top: 15px;
+			margin-left: 130px;
+			height:220px;
+			width:900px;
+			border:1px solid #ccc;
+			float: left;
+			overflow: hidden;
+		}
+		.clear{
+			overflow: auto;
+		}
+		#scrollDiv{
+			overflow: auto;
+		}
+	</style>
+	<script>
+		$(function(){
+			$('#scrollDiv').textSlider({line:1,speed:1000,timer:2000});
+			function usercount(){ 
+				var arr = ['1789','1800','1795','1750','1745','1835','1798','1804','1823','1798'];
+				var b = Math.floor(Math.random() * 10); 
+			    return arr[b]; 
+			}; 
+			setInterval(function(){
+				$('#user-count').html(usercount);
+			},1000); 
+			function terminaluser(){ 
+				var arr = ['140/180','150/180','145/180','160/180','163/180','158/180','160/180','162/180','149/180','167/180'];
+				var b = Math.floor(Math.random() * 10); 
+			    return arr[b]; 
+			}; 
+			setInterval(function(){
+				$('#terminal-user').html(terminaluser);
+			},1000);			
+			function hospitalcount(){ 
+				var arr = ['18/20','19/20','19/20','17/20','18/20','18/20','19/20','18/20','18/20','19/20'];
+				var b = Math.floor(Math.random() * 10); 
+			    return arr[b]; 
+			}; 
+			setInterval(function(){
+				$('#hospital-count').html(hospitalcount);
+			},1000);			
+			function nursingcount(){ 
+				var arr = ['29/32','28/32','27/32','28/32','30/32','29/32','28/32','27/32','31/32','29/32'];
+				var b = Math.floor(Math.random() * 10); 
+			    return arr[b]; 
+			}; 
+			setInterval(function(){
+				$('#nursing-count').html(nursingcount);
+			},1000); 
+		});
+	</script> 
+</head>
+<body>
+	<div class="clear">
+		<div class="mointor">
+			<div class="title">实时在线用户监控</div>
+			<div class="content">
+				<ul>
+					<li>
+						<span class="symbol red"><i class="fa fa-university"></i></span>
+						<span class="value">
+							<h3 id="nursing-count">28/32</h3>
+							<p>养老机构数目</p>
+						</span>
+					</li>
+					<li>
+						<span class="symbol yellow"><i class="fa fa-hospital-o"></i></span>
+						<span class="value">
+							<h3 id="hospital-count">19/20</h3>
+							<p>医院机构数目</p>
+						</span>
+					</li>
+					<li>
+						<span class="symbol green"><i class="fa fa-user"></i></span>
+						<span class="value">
+							<h3 id='terminal-user'>150/180</h3>
+							<p>终端用户数目</p>
+						</span>
+					</li>
+					<li>
+						<span class="symbol blue"><i class="fa fa-users"></i></span>
+						<span class="value">
+							<h3 id="user-count">1800</h3>
+							<p>在线用户总数</p>
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="today">
+			<div class="title">今日异常设备</div>
+			<div id="scrollDiv">
+				<div class="content" id="scrollText">
+					<ul>
+						<li>设备号：0024&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机构：重庆泰康老年公寓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 09:12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常备注：</li>
+						<li>设备号：0193&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机构：重庆医科大学附属第一医院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 08:39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常备注：</li
+						><li>设备号：0058&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机构：重庆三峡中心医院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 06:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常备注：</li>
+						<li>设备号：0073&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机构：重庆市渝中区爱民老年服务中心&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 00:01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常备注：</li>
+						<li>设备号：0033&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机构：重庆侨发颐年园老年公寓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 14:30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常备注：</li>
+						<li>设备号：0123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机构：重庆市人民医院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 18:01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常备注：</li>	
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

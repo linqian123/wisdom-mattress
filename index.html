@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title></title>
+	<link rel="stylesheet" href="ace/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="ace/css/ace.min.css" />
+	<link rel="stylesheet" href="ace/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="ace/css/ace-rtl.min.css" />
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="ace/js/bootstrap.min.js"></script>
+	<script src="ace/js/ace.min.js"></script>
+	<script src="ace/js/ace-elements.min.js"></script>
+	<script src="ace/js/ace-extra.min.js"></script>
+	<style>
+		body,html{
+			margin:0;
+			padding:0;
+		}
+		#title{
+			color:#fff;
+			font-size: 25px;
+			padding-top:6%;
+			padding-left:85px;
+		}
+	</style>
+	<script>
+		$(function(){
+			function currentTime(){ 
+			    var d=new Date(),str=''; 
+			    str+=d.getFullYear()+'年'; 
+			    str+=d.getMonth() + 1+'月'; 
+			    str+=d.getDate()+'日'; 
+			    str+=d.getHours()+'时'; 
+			    str+=d.getMinutes()+'分'; 
+			    str+= d.getSeconds()+'秒'; 
+			    return str; 
+			}; 
+			setInterval(function(){
+				$('#time').html(currentTime);
+			},1000); 
+			$("#sidebar").height($(window).height()-$('#navbar').height());
+			$("#iframe").height($(window).height()-140);
+			$(".iframeurl").on('click',function(){
+				var cid = $(this).attr('name');
+				$("#iframe").attr('src',cid);
+				$('li').removeClass('active');
+				$(this).parent().addClass('active');
+				var bid =$(this).attr('title');
+				if(bid!="系统首页"){
+					bread(bid);
+				}else{
+					$("#breadcrumbs").siblings('li').remove();
+				}
+			});
+			function bread(bname){
+				$("#breadcrumbs").siblings('li').remove();
+				var bli = document.createElement('li');
+				bli.innerHTML=bname;
+				$('#breadcrumbs').parent().append(bli);
+			};
+		});
+	</script> 
+</head>
+<body>
+	<div class="navbar navbar-default" id="navbar">
+		<div class="navbar-container">
+			<div class="navbar-header pull-left">
+				<div id="title">智慧养老管理云平台</div>
+			</div>
+			<div class="navbar-header pull-right" role="navigation">
+				<ul class="nav ace-nav">
+					<li class="light-blue">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">
+					 		<span class="user-info"><small>欢迎光临,</small>超级管理员</span>
+							<i class="icon-caret-down"></i>
+						</a>
+						<ul class="dropdown-menu dropdown-caret pull-right dropdown-yellow dropdown-close">
+							<li>
+								<a href="">
+									<i class="icon-user"></i>
+									<span class="menu-text">个人资料</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<i class="icon-pencil"></i>
+									<span class="menu-text">修改密码</span>
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="login.html">
+									<i class="icon-off"></i>
+									<span class="menu-text">安全退出</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="light-blue">
+						<a>
+							<span id="time"></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main-container">
+		<div class="main-container-inner">
+			<div class="sidebar" id="sidebar">
+				<!-- <div class="sidebar-shortcuts">
+					<div class="sidebar-shortcuts-large">
+						<a class="btn btn-success btn-large">
+							<i class="icon-signal"></i>
+						</a>
+						<a class="btn btn-info">
+							<i class="icon-pencil"></i>
+						</a>
+						<a class="btn btn-warning">
+							<i class="icon-group"></i>
+						</a>
+						<a class="btn btn-danger">
+							<i class="icon-cogs"></i>
+						</a>
+					</div>
+				</div> -->
+				<ul class="nav nav-list">
+					<li>
+						<a href="javascript:void(0)">
+							<span class="menu-text"></span>
+						</a>
+					</li>
+					<li class="active">
+						<a href="javascript:void(0)" name="home.html" class="iframeurl" title="系统首页">
+							<i class="icon-home"></i>
+							<span class="menu-text">系统首页</span>
+						</a>
+					</li>
+					<li>
+						<a href="" class="dropdown-toggle">
+							<i class="icon-building"></i>
+							<span class="menu-text">机构管理</span>
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="javascript:void(0)" name="nursingHomeList.html" class="iframeurl" title="养老院管理">
+								<i class="icon-double-angle-right"></i>养老院管理
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" name="hospitalList.html" class="iframeurl" title="医院管理">
+								<i class="icon-double-angle-right"></i>医院管理
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="" class="dropdown-toggle">
+							<i class="icon-user"></i>
+							<span class="menu-text">用户管理</span>
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a  href="javascript:void(0)" name="institutional-user.html" class="iframeurl" title="机构用户管理">
+								<i class="icon-double-angle-right"></i>机构用户管理
+								</a>
+							</li>
+							<li>
+								<a  href="javascript:void(0)" name="terminal-user.html" class="iframeurl" title="终端用户管理">
+								<i class="icon-double-angle-right"></i>终端用户管理
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="dropdown-toggle">
+							<i class="icon-list-alt"></i>
+							<span class="menu-text">报表管理</span>
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a  href="javascript:void(0)">
+								<i class="icon-double-angle-right"></i>报表管理
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="dropdown-toggle">
+							<i class="icon-group"></i>
+							<span class="menu-text">权限管理</span>
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a  href="javascript:void(0)">
+								<i class="icon-double-angle-right"></i>用户管理
+								</a>
+							</li>
+							<li>
+								<a  href="javascript:void(0)">
+								<i class="icon-double-angle-right"></i>角色管理
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="dropdown-toggle">
+							<i class="icon-cogs"></i>
+							<span class="menu-text">系统管理</span>
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a  href="javascript:void(0)">
+								<i class="icon-double-angle-right"></i>业务日志
+								</a>
+							</li>
+							<li>
+								<a  href="javascript:void(0)">
+								<i class="icon-double-angle-right"></i>投诉建议
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="sidebar-collapse">
+					<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+				</div>
+			</div>
+			<div class="main-content" id="main-content">
+				<div class="breadcrumbs">
+					<ul class="breadcrumb">
+						<li id="breadcrumbs">
+							<i class="icon-home"></i>
+							<a href="index.html">首页</a>
+						</li>
+					</ul>
+				</div>
+				<iframe id="iframe" style="border:0; width:100%; background-color:#FFF;" name="iframe" frameborder="0" src="home.html">  </iframe>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

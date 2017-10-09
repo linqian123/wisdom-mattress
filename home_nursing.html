@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="ace/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome2.min.css" />
+	<link rel="stylesheet" href="ace/css/ace.min.css" />
+	<link rel="stylesheet" href="dataTables/dataTables.bootstrap.css" />
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="ace/js/bootstrap.min.js"></script>
+	<script src="dataTables/jquery.dataTables.min.js"></script>
+	<script src="dataTables/dataTables.bootstrap.min.js"></script>
+	<script src="textSlider/jQuery.textSlider.js"></script>
+	<style>
+		body,html{
+			margin:0;
+			padding:0;
+		}
+		ul{list-style: none;}
+		.page-content{padding:15px 40px 0;width:85%;}
+		.pink { background: #F9243F;}
+		.green{ background-color:#8DC63F;}
+		.purple {background: #7C38BC;}
+		.title{
+			padding:20px;
+			font-size: 18px;
+			font-weight: bold;
+			color:#8DC63F;
+		}
+		.mointor{overflow:hidden;float:left;}
+		.mointor ul{
+			width:850px;
+		}
+		.event ul li{
+			float: left;
+			width:190px;
+			height:100px;
+			margin-right:10px;
+			margin-bottom: 10px;
+			padding-left: 10px;
+		}
+		.event span.value p{
+			font-size: 20px;
+			text-align: center;
+		}
+		.event span.value p.em{
+			color:#F9243F;
+			padding-top: 8px;
+			font-size: 23px;
+		}
+		.menu ul li{
+			float: left;
+			width:120px;
+			height:150px;
+			margin-right: 15px;
+			margin-bottom: 10px;
+			padding-left: 10px;
+		}
+		.menu span.value p{
+			padding-top: 10px;
+			font-size: 20px;
+			text-align: center;
+		}
+		.menu img{
+			padding: 8px;
+			width:100px;
+			height:100px;
+		}
+		.today{overflow: auto;float:left;}
+		.today ul{
+			padding-top: 15px;
+			border: 1px solid #ccc; 
+			width: 350px;
+			height:150px;
+		}
+		.today ul li{
+			float: left;
+			width: 150px;
+			height:40px;
+			line-height: 40px;
+			text-align: left;
+			font-size: 15px;
+		}
+		.today ul li span{
+			font-weight: bold;
+		}
+		.birth{
+			margin-top: 15px;
+		}
+		.clear{
+			overflow: auto;
+		}
+	</style>
+	<script>
+		$(function(){
+			
+		});
+	</script> 
+</head>
+<body>
+	<div class="clear">
+		<div class="mointor">
+			<div class="event">
+				<div class="title">待办事项</div>
+				<ul class="clear">
+					<li>
+						<span class="value">
+							<p class="em">3</p>
+							<p>入住办理-健康评估</p>
+						</span>
+					</li>
+					<li>	
+						<span class="value">
+							<p class="em">2</p>
+							<p>入住办理-床位登记</p>
+						</span>
+					</li>
+					<li>
+						<span class="value">
+							<p class="em">1</p>
+							<p>入住办理-入院做客</p>
+						</span>
+					</li>
+					<li>
+						<span class="value">
+							<p class="em">3</p>
+							<p>试住转入住</p>
+						</span>
+					</li>
+					<li>
+						<span class="value">
+							<p class="em">1</p>
+							<p>欠费名单</p>
+						</span>
+					</li>
+					<li>
+						<span class="value">
+							<p class="em">1</p>
+							<p>用药登记</p>
+						</span>
+					</li>
+					<li>
+						<span class="value">
+							<p class="em">1</p>
+							<p>剩余药品登记</p>
+						</span>
+					</li>
+					<li>
+						<span class="value">
+							<p class="em">3</p>
+							<p>库存预约</p>
+						</span>
+					</li>
+				</ul>
+			</div>
+			<div class="menu">
+				<div class="title">常用菜单</div>
+				<ul class="clear">
+					<li>
+						<span class="value">
+							<img src="imgs/2.png" alt="">
+							<p>老人管理</p>
+						</span>
+					</li>
+					<li>	
+						<span class="value">
+							<img src="imgs/1.png" alt="">
+							<p>探视登记</p>
+						</span>
+					</li>
+					<li>
+						<span class="value">
+							<img src="imgs/3.png" alt="">
+							<p>预约登记</p>
+						</span>
+					</li>
+					<li>
+						<span class="value">
+							<img src="imgs/4.png" alt="">
+							<p>试住登记</p>
+						</span>
+					</li>
+					<li>
+						<span class="value">
+							<img src="imgs/5.png" alt="">
+							<p>入住登记</p>
+						</span>
+					</li>
+					<li>
+						<span class="value">
+							<img src="imgs/6.png" alt="">
+							<p>添加</p>
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="today" class="clear">
+			<div class="todayevent" class="clear">
+				<div class="title">今日动态</div>
+				<ul>
+					<li><span>今日咨询：</span>2人</li>
+					<li><span>今日试住：</span>2人</li>
+					<li><span>今日外出：</span>2人</li>
+					<li><span>今日预约：</span>2人</li>
+					<li><span>今日入住：</span>2人</li>
+					<li><span>今日探视：</span>2人</li>
+				</ul>
+			</div>
+			<div class="birth">
+				<div class="title">生日统计</div>
+				<table id="dataTable" class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>姓名</th>
+							<th>性别</th>
+							<th>年龄</th>
+							<th>阳历生日</th>
+							<th>阴历生日</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>李小林</td>
+							<td>女</td>
+							<td>70</td>
+							<td>46-1-20</td>
+							<td>46-1-20</td>
+						</tr>
+						<tr>
+							<td>张小二</td>
+							<td>男</td>
+							<td>80</td>
+							<td>36-1-20</td>
+							<td>36-1-20</td>
+						</tr>
+						<tr>
+							<td>李小林</td>
+							<td>女</td>
+							<td>70</td>
+							<td>46-1-20</td>
+							<td>46-1-20</td>
+						</tr>
+						<tr>
+							<td>李小林</td>
+							<td>女</td>
+							<td>70</td>
+							<td>46-1-20</td>
+							<td>46-1-20</td>
+						</tr>
+						<tr>
+							<td>李小林</td>
+							<td>女</td>
+							<td>70</td>
+							<td>46-1-20</td>
+							<td>46-1-20</td>
+						</tr>
+						<tr>
+							<td>李小林</td>
+							<td>女</td>
+							<td>70</td>
+							<td>46-1-20</td>
+							<td>46-1-20</td>
+						</tr>
+					</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

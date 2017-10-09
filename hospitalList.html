@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="ace/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome2.min.css" />
+	<link rel="stylesheet" href="ace/css/ace.min.css" />
+	<link rel="stylesheet" href="dataTables/dataTables.bootstrap.css" />
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="ace/js/bootstrap.min.js"></script>
+	<script src="dataTables/jquery.dataTables.min.js"></script>
+	<script src="dataTables/dataTables.bootstrap.min.js"></script>
+	<style>
+		body,html{padding:0;margin:0;}
+		ul{list-style: none;}
+		li{float:left;margin-right:10px;}
+		.page-content{padding:15px;}
+		.l_f{float:left;}
+		.r_f{float:right;}
+		.clearfix{clear:both;}
+		.border{border:1px solid #ddd;padding-top:10px; padding-left:0px; margin-bottom:5px;}
+		a i{margin-right: 5px;}
+		.edit{margin-top:5px;}
+		.btn_search{
+			margin-left:15px;
+			background:#2a8bcc;
+			text-align: center;
+			color:#fff;
+			border-radius: 10px;
+			-moz-border-radius:10px; 
+			-webkit-border-radius:10px;
+		}
+		.btn_search i{padding-right: 5px;}
+	</style>
+	<script>
+		$(function(){
+			$('#tables').dataTable({
+				"oLanguage": {
+					"sLengthMenu": "每页显示 _MENU_ 条记录",
+					"sZeroRecords": "抱歉， 没有找到",
+					"sInfo": "第 _START_ 到 _END_ 条记录，共 _TOTAL_ 条",
+					"sInfoEmpty": "没有数据",
+					"sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+					"oPaginate": {
+						"sFirst": "首页",
+						"sPrevious": "前一页",
+						"sNext": "后一页",
+						"sLast": "尾页"
+					},
+					"sZeroRecords": "没有检索到数据"
+				}
+			});
+		});
+	</script> 
+</head>
+<body>
+	<div class="page-content">
+		<div class="border">
+			<ul class="clearfix">
+				<li>
+					<a href="" class="btn btn-warning"><i class="fa fa-plus"></i>新增</a>
+				</li>
+				<li>
+					<a href="" class="btn btn-danger"><i class="fa fa-trash"></i>删除</a>
+				</li>
+				<li class="edit">
+					<label for="">医院名称：</label>
+					<input type="text">
+				</li>
+				<li class="edit">
+					<button type="button" class='btn_search'><i class="fa fa-search"></i>查询</button>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<table class="table table-striped table-bordered table-hover" id="tables">
+				<thead>
+					<tr>
+						<th></th>
+						<th>医院ID</th>
+						<th>医院名称</th>
+						<th>地址</th>
+						<th>联系方式</th>
+					</tr>
+				</thead>
+				<tbody id="list">
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>01</td>
+						<td>西南医院</td>
+						<td>重庆市沙坪坝区高滩岩正街35号</td>
+						<td>023-65318301, 023-68754000</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>02</td>
+						<td>重庆新桥医院</td>
+						<td>重庆市沙坪坝区新桥正街</td>
+						<td>023-68755651, 023-68755313</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>03</td>
+						<td>重庆医科大学附属第一医院</td>
+						<td>重庆市渝中区袁家岗友谊路1号</td>
+						<td>023-68801314</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>04</td>
+						<td>大坪医院</td>
+						<td>重庆市渝中区大坪长江支路10号</td>
+						<td>023-68811229</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>05</td>
+						<td>重庆医科大学附属第二医院</td>
+						<td>重庆市渝中区临江路74号</td>
+						<td>023-63832133</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>06</td>
+						<td>重庆医科大学附属儿童医院</td>
+						<td>重庆市渝中区中山二路136号</td>
+						<td>023-63632756</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>07</td>
+						<td>重庆市人民医院</td>
+						<td>重庆市渝中区枇杷山正街104号</td>
+						<td>023-63513364</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>08</td>
+						<td>重庆三峡中心医院</td>
+						<td>重庆万州区新城路165号</td>
+						<td>023-58122622</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>09</td>
+						<td>重庆市涪陵中心医院</td>
+						<td>重庆市涪陵区高笋塘路2号</td>
+						<td>020-72226100</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>10</td>
+						<td>中国人民解放军324医院</td>
+						<td>重庆市江北区建新东路29号</td>
+						<td>023-68762100</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>11</td>
+						<td>重庆市妇幼保健院</td>
+						<td>重庆市七星岗金汤街64号</td>
+						<td>023-63846175, 63840863</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>12</td>
+						<td>重庆市第一人民医院</td>
+						<td>重庆市渝中区道门口街40号</td>
+						<td>023-63841324, 023-63725764</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>13</td>
+						<td>重庆市第二人民医院</td>
+						<td>重庆永川市萱花路439号</td>
+						<td>023-49864553</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>14</td>
+						<td>重庆市第四人民医院</td>
+						<td>重庆市渝中区健康路1号</td>
+						<td>023-63692008</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>15</td>
+						<td>重庆市第九人民医院</td>
+						<td>重庆市北碚区嘉陵村69号</td>
+						<td>023-68865906</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>16</td>
+						<td>重庆市第十人民医院</td>
+						<td>重庆市江北区金紫山102号</td>
+						<td>023-67500488</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>17</td>
+						<td>长安汽车有限责任公司第二职工医院</td>
+						<td>重庆市江北区建新东路260号</td>
+						<td>023-67592489</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>18</td>
+						<td>重庆市红十字会医院</td>
+						<td>重庆市江北区红会村1号</td>
+						<td>023-67562595</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>19</td>
+						<td>重庆格林医院</td>
+						<td>重庆市石桥铺白马函公交车站对面</td>
+						<td>023-68880828</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>20</td>
+						<td>重庆市黔江中心医院</td>
+						<td>重庆市黔江区城西9号169号</td>
+						<td>023-79222258</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+<script type="text/template" id="moban">
+	<tr>
+		<td><input type="checkbox"></td>
+		<td>{{= id}}</td>
+		<td>{{= name}}</td>
+		<td>{{= address}}</td>
+		<td>{{= number}}</td>
+		<td>{{= cost}}</td>
+	</tr>
+</script>
+<script type="text/javascript">
+	var a = 1
+	var compiled = _.template($('#moban').html());
+	$.ajax({
+		url:'./nursingHomeList.php',
+		data:{a:a},
+		type:'POST',
+		dataType:'json',
+		success:function(data){
+			console.log(data);
+		},
+		error:function(){
+			alert("Failed");
+		}		
+	});
+</script>
+</html>

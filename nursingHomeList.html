@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="ace/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome2.min.css" />
+	<link rel="stylesheet" href="ace/css/ace.min.css" />
+	<link rel="stylesheet" href="dataTables/dataTables.bootstrap.css" />
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="ace/js/bootstrap.min.js"></script>
+	<script src="dataTables/jquery.dataTables.min.js"></script>
+	<script src="dataTables/dataTables.bootstrap.min.js"></script>
+	<style>
+		body,html{padding:0;margin:0;}
+		ul{list-style: none;}
+		li{float:left;margin-right:10px;}
+		.page-content{padding:15px;}
+		.l_f{float:left;}
+		.r_f{float:right;}
+		.clearfix{clear:both;}
+		.border{border:1px solid #ddd;padding-top:10px; padding-left:0px; margin-bottom:5px;}
+		a i{margin-right: 5px;}
+		.edit{margin-top:5px;}
+		.btn_search{
+			margin-left:15px;
+			background:#2a8bcc;
+			text-align: center;
+			color:#fff;
+			border-radius: 10px;
+			-moz-border-radius:10px; 
+			-webkit-border-radius:10px;
+		}
+		.btn_search i{padding-right: 5px;}
+	</style>
+	<script>
+		$(function(){
+			$('#tables').dataTable({
+				"oLanguage": {
+					"sLengthMenu": "每页显示 _MENU_ 条记录",
+					"sZeroRecords": "抱歉， 没有找到",
+					"sInfo": "第 _START_ 到 _END_ 条记录，共 _TOTAL_ 条",
+					"sInfoEmpty": "没有数据",
+					"sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+					"oPaginate": {
+						"sFirst": "首页",
+						"sPrevious": "前一页",
+						"sNext": "后一页",
+						"sLast": "尾页"
+					},
+					"sZeroRecords": "没有检索到数据"
+				}
+			});
+		});
+	</script> 
+</head>
+<body>
+	<div class="page-content">
+		<div class="border">
+			<ul class="clearfix">
+				<li>
+					<a href="" class="btn btn-warning"><i class="fa fa-plus"></i>新增</a>
+				</li>
+				<li>
+					<a href="" class="btn btn-danger"><i class="fa fa-trash"></i>删除</a>
+				</li>
+				<li class="edit">
+					<label for="">养老院名称：</label>
+					<input type="text">
+				</li>
+				<li class="edit">
+					<button type="button" class='btn_search'><i class="fa fa-search"></i>查询</button>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<table class="table table-striped table-bordered table-hover" id="tables">
+				<thead>
+					<tr>
+						<th></th>
+						<th>养老院ID</th>
+						<th>养老院名称</th>
+						<th>地址</th>
+						<th>床位数</th>
+						<th>收费区间</th>
+						<th>联系方式</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>01</td>
+						<td>重庆市渝中区爱民老年服务中心</td>
+						<td>重庆市渝中区长江一路49号</td>
+						<td>200张</td>
+						<td>2000-3000元/月</td>
+						<td>023-63704586</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>02</td>
+						<td>重庆溯源居老年公寓</td>
+						<td>重庆市歌乐山大田湾</td>
+						<td>80张</td>
+						<td>2000-3000元/月</td>
+						<td>15223247523</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>03</td>
+						<td>合展天池老年护养中心</td>
+						<td>重庆市歌乐山天池</td>
+						<td>650张</td>
+						<td>5000元以上/月</td>
+						<td>023-65411639</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>04</td>
+						<td>天池生态养老公寓</td>
+						<td>重庆市沙坪坝区歌乐山镇上天池牵牛洞</td>
+						<td>88张</td>
+						<td>2000-3000元/月</td>
+						<td>023-62594264</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>05</td>
+						<td>重庆市第一社会福利院</td>
+						<td>重庆市巴南山李家沱苦竹坝</td>
+						<td>500张</td>
+						<td>1000-2000元/月</td>
+						<td>023-62594264</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>06</td>
+						<td>重庆市万州社会福利院</td>
+						<td>重庆市万州区山湾街63号</td>
+						<td>300张</td>
+						<td>1000-2000元/月</td>
+						<td>023-85781098</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>07</td>
+						<td>重庆彩虹老年公寓</td>
+						<td>重庆市沙坪坝歌乐山</td>
+						<td>80张</td>
+						<td>500-1000元/月</td>
+						<td>023-62017391</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>08</td>
+						<td>重庆侨发颐年园老年公寓</td>
+						<td>重庆市江北区石门富强村109号</td>
+						<td>100张</td>
+						<td>2000-3000元/月</td>
+						<td>023-67658883</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>09</td>
+						<td>重庆九龙坡长生养老院</td>
+						<td>重庆市九龙坡区滩子口部队大院内</td>
+						<td>80张</td>
+						<td>1000-2000元/月</td>
+						<td>15023231679</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>10</td>
+						<td>重庆松林坡爱心养老院</td>
+						<td>重庆市沙坪坝歌乐山松林坡</td>
+						<td>50张</td>
+						<td>2000-3000元/月</td>
+						<td>13251357460</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>11</td>
+						<td>重庆泰康老年公寓</td>
+						<td>重庆市南岸区南山植物园下行100米</td>
+						<td>67张</td>
+						<td>2000-3000元/月</td>
+						<td>18716288869</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>12</td>
+						<td>重庆华富颐养园老年会所</td>
+						<td>重庆南岸区南山植物园路9号</td>
+						<td>60张</td>
+						<td>1000-2000元/月</td>
+						<td>13640566686</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>13</td>
+						<td>重庆怡康托老中心</td>
+						<td>重庆市渝中区大坪电视塔村25号</td>
+						<td>100张</td>
+						<td>2000-3000元/月</td>
+						<td>13808351198</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>14</td>
+						<td>重庆百年康老年服务中心</td>
+						<td>重庆市九龙坡区中梁山玉清寺</td>
+						<td>100张</td>
+						<td>1000-2000元/月</td>
+						<td>13594191678</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>15</td>
+						<td>重庆市南岸区南山养老疗养中心</td>
+						<td>南山泉水鸡一条街</td>
+						<td>200张</td>
+						<td>500元以下/月</td>
+						<td>023-66010025</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>16</td>
+						<td>重庆市九龙坡区老年公寓</td>
+						<td>石坪桥后街104号</td>
+						<td>50张</td>
+						<td>500-1000元/月</td>
+						<td>暂无电话</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>17</td>
+						<td>重庆市大渡口区爱心养老院</td>
+						<td>重庆市大渡口区鑫瑞小区车站旁300米</td>
+						<td>60张</td>
+						<td>1000-2000元/月</td>
+						<td>13628327155</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>18</td>
+						<td>青木雅舍独栋别院生态旅游园</td>
+						<td>重庆沙坪坝青关木</td>
+						<td>50张</td>
+						<td>500-1000元/月</td>
+						<td>13996194879</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>19</td>
+						<td>重庆大渡口区跳蹬镇敬老院</td>
+						<td>重庆大渡口区跳蹬镇</td>
+						<td>50张</td>
+						<td>500元以下/月</td>
+						<td>暂无电话</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>20</td>
+						<td>重庆长坝镇敬老院</td>
+						<td>重庆市武隆县长坝镇</td>
+						<td>50张</td>
+						<td>500-1000元/月</td>
+						<td>023-77755139</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>21</td>
+						<td>重庆爱林居托老中心</td>
+						<td>九龙坡区含谷镇崇兴村</td>
+						<td>130张</td>
+						<td>500-1000元/月</td>
+						<td>13808355425</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>22</td>
+						<td>狮子山老年公寓</td>
+						<td>巴南山龙州湾街道道角村燕尾山</td>
+						<td>100张</td>
+						<td>1000-2000元/月</td>
+						<td>023-62559398</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>23</td>
+						<td>江津耀文老年公寓</td>
+						<td>江津艾坪山耀文山庄</td>
+						<td>100张</td>
+						<td>1000-2000元/月</td>
+						<td>13883870965</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>24</td>
+						<td>南坪住佳老年护理院</td>
+						<td>重庆南岸区南坪正街玛瑙苑138号</td>
+						<td>70张</td>
+						<td>500元以下/月</td>
+						<td>13808318629</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>25</td>
+						<td>重庆大足老人院</td>
+						<td>重庆市大足石刻一公里</td>
+						<td>160张</td>
+						<td>500-1000元/月</td>
+						<td>18623335353</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>26</td>
+						<td>重庆市南岸区南山松翠园老年公寓</td>
+						<td>重庆市南岸区南山石牛村</td>
+						<td>100张</td>
+						<td>500元以下/月</td>
+						<td>13628449077</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>27</td>
+						<td>重庆市江津市白沙镇寿星公寓</td>
+						<td>重庆市江津市白沙镇东山村杨家湾</td>
+						<td>500张</td>
+						<td>500-1000元/月</td>
+						<td>13883159889</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>28</td>
+						<td>重庆市北碚区天宇星光老年公寓</td>
+						<td>重庆市北碚区龙溪路32号</td>
+						<td>100张</td>
+						<td>500-1000元/月</td>
+						<td>13883159889</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>29</td>
+						<td>重庆市渝中区天主教仁爱敬老院</td>
+						<td>山城巷80号</td>
+						<td>86张</td>
+						<td>500元以下/月</td>
+						<td>023-63731502</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>30</td>
+						<td>重庆市南岸区青松养老公寓</td>
+						<td>重庆市南岸区南山街道公园路151号</td>
+						<td>70张</td>
+						<td>1000-2000元/月</td>
+						<td>13883141815</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>31</td>
+						<td>重庆市北碚区天毅老年颐养院</td>
+						<td>重庆市北碚区辽宁路89号</td>
+						<td>200张</td>
+						<td>500元以下/月</td>
+						<td>13368381500</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>32</td>
+						<td>重庆市沙坪坝群林养老院</td>
+						<td>重庆市沙坪坝汉瑜路工人林盛世年华</td>
+						<td>120张</td>
+						<td>1000-2000元/月</td>
+						<td>13635466686</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="ace/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome2.min.css" />
+	<link rel="stylesheet" href="ace/css/ace.min.css" />
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="ace/js/bootstrap.min.js"></script>
+	<style>
+		body,html{
+			margin:0;
+			padding:0;
+		}
+		ul{list-style: none;}
+		.page-content{padding:15px 40px 0;width:85%;}
+		.green{ background-color:#8DC63F;}
+		.title{
+			padding:20px;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.describe{
+			padding:20px;
+			padding-left: 30px;
+		}
+		.mointor{overflow:hidden;float:left;padding-top: 15px;}
+		.mointor ul li{
+			float:left;
+			margin-right: 15px;
+			width:270px;
+			border: 1px solid #ccc;
+			height:160px;
+			margin-bottom: 10px;
+			padding-left: 130px;
+			padding-top: 10px;
+			padding-bottom: 5px;
+			position: relative;
+		}
+		 .mointor span.value{
+			text-align: left;
+		} 
+		.mointor span.value p{
+			font-size: 15px;
+		}
+		.mointor span.value p span{
+			font-weight: bold;
+		}
+		.mointor span.symbol{
+			width: 90px;
+			height:90px;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 90px;
+			position: absolute;
+			top:30px;
+			left:20px;
+		}
+		.mointor span.symbol i{
+			font-size: 45px;
+			color: #fff;
+			line-height: 90px;
+		}
+		.clear{
+			overflow: auto;
+		}
+	</style>
+	<script>
+		$(function(){
+		});
+	</script> 
+</head>
+<body>
+	<div class="clear">
+		<ul class="nav nav-tabs">
+		  <li role="presentation" class="active"><a href="#">&nbsp;&nbsp;A&nbsp;楼&nbsp;&nbsp;&nbsp;</a></li>
+		  <li role="presentation"><a href="#">&nbsp;&nbsp;B&nbsp;楼&nbsp;&nbsp;&nbsp;</a></li>
+		  <li role="presentation"><a href="#">&nbsp;&nbsp;C&nbsp;楼&nbsp;&nbsp;&nbsp;</a></li>
+		  <li role="presentation"><a href="#">&nbsp;&nbsp;D&nbsp;楼&nbsp;&nbsp;&nbsp;</a></li>
+		  <li role="presentation"><a href="#">&nbsp;&nbsp;E&nbsp;楼&nbsp;&nbsp;&nbsp;</a></li>
+		  <li role="presentation"><a href="#">&nbsp;&nbsp;F&nbsp;楼&nbsp;&nbsp;&nbsp;</a></li>
+		</ul>
+		<div class="describe">
+			<p>
+				共五层，20个房间，40个床位，13人入住，33人未完成入住登记。6男，7女。4个二级护理，5个三级护理，2个一级护理。
+			</p>
+		</div>
+		<ul class="nav nav-tabs">
+		  <li role="presentation" class="active"><a href="#">&nbsp;&nbsp;一&nbsp;层&nbsp;&nbsp;&nbsp;</a></li>
+		  <li role="presentation"><a href="#">&nbsp;&nbsp;二&nbsp;层&nbsp;&nbsp;&nbsp;</a></li>
+		  <li role="presentation"><a href="#">&nbsp;&nbsp;三&nbsp;层&nbsp;&nbsp;&nbsp;</a></li>
+		  <li role="presentation"><a href="#">&nbsp;&nbsp;四&nbsp;层&nbsp;&nbsp;&nbsp;</a></li>
+		  <li role="presentation"><a href="#">&nbsp;&nbsp;五&nbsp;层&nbsp;&nbsp;&nbsp;</a></li>
+		</ul>
+		<div class="describe">
+			<p>
+				4个房间，8个床位，6人入住，4人未完成入住登记。2男，4女。1个二级护理，3个三级护理，1个一级护理。
+			</p>
+		</div>
+		<div class="mointor">
+			<ul>
+				<li>
+					<span class="symbol green">
+						<i class="fa fa-bed"></i>
+					</span>
+					<span class="value">
+						<p><span>床位号：</span>A101-01</p>
+						<p><span>用户名：</span>张利</p>
+						<p><span>心&nbsp;&nbsp;&nbsp;&nbsp;率：</span>75</p>
+						<p><span>呼&nbsp;&nbsp;&nbsp;&nbsp;吸：</span>14</p>
+						<p><span>翻身次数：</span>25</p>
+					</span>
+				</li>
+				<li>
+					<span class="symbol green">
+						<i class="fa fa-bed"></i>
+					</span>
+					<span class="value">
+						<p><span>床位号：</span>A101-02</p>
+						<p><span>用户名：</span>苏素</p>
+						<p><span>心&nbsp;&nbsp;&nbsp;&nbsp;率：</span>80</p>
+						<p><span>呼&nbsp;&nbsp;&nbsp;&nbsp;吸：</span>18</p>
+						<p><span>翻身次数：</span>20</p>
+					</span>
+				</li>
+				<li>
+					<span class="symbol green">
+						<i class="fa fa-bed"></i>
+					</span>
+					<span class="value">
+						<p><span>床位号：</span>A102-01</p>
+						<p><span>用户名：</span>李冰</p>
+						<p><span>心&nbsp;&nbsp;&nbsp;&nbsp;率：</span>82</p>
+						<p><span>呼&nbsp;&nbsp;&nbsp;&nbsp;吸：</span>16</p>
+						<p><span>翻身次数：</span>25</p>
+					</span>
+				</li>
+				<li>
+					<span class="symbol green">
+						<i class="fa fa-bed"></i>
+					</span>
+					<span class="value">
+						<p><span>床位号：</span>A102-02</p>
+						<p><span>用户名：</span>董丹</p>
+						<p><span>心&nbsp;&nbsp;&nbsp;&nbsp;率：</span>73</p>
+						<p><span>呼&nbsp;&nbsp;&nbsp;&nbsp;吸：</span>16</p>
+						<p><span>翻身次数：</span>20</p>
+					</span>
+				</li>
+				<li>
+					<span class="symbol green">
+						<i class="fa fa-bed"></i>
+					</span>
+					<span class="value">
+						<p><span>床位号：</span>A103-01</p>
+						<p><span>用户名：</span>高海旭</p>
+						<p><span>心&nbsp;&nbsp;&nbsp;&nbsp;率：</span>65</p>
+						<p><span>呼&nbsp;&nbsp;&nbsp;&nbsp;吸：</span>15</p>
+						<p><span>翻身次数：</span>22</p>
+					</span>
+				</li>
+				<li>
+					<span class="symbol green">
+						<i class="fa fa-bed"></i>
+					</span>
+					<span class="value">
+						<p><span>床位号：</span>A103-02</p>
+						<p><span>用户名：</span>胡杰</p>
+						<p><span>心&nbsp;&nbsp;&nbsp;&nbsp;率：</span>68</p>
+						<p><span>呼&nbsp;&nbsp;&nbsp;&nbsp;吸：</span>18</p>
+						<p><span>翻身次数：</span>30</p>
+					</span>
+				</li>
+				<li>
+					<span class="symbol green">
+						<i class="fa fa-bed"></i>
+					</span>
+					<span class="value">
+						<p><span>床位号：</span>A104-01</p>
+						<p><span>用户名：</span>赵培</p>
+						<p><span>心&nbsp;&nbsp;&nbsp;&nbsp;率：</span>78</p>
+						<p><span>呼&nbsp;&nbsp;&nbsp;&nbsp;吸：</span>19</p>
+						<p><span>翻身次数：</span>20</p>
+					</span>
+				</li>
+				<li>
+					<span class="symbol green">
+						<i class="fa fa-bed"></i>
+					</span>
+					<span class="value">
+						<p><span>床位号：</span>A104-02</p>
+						<p><span>用户名：</span>郑晓红</p>
+						<p><span>心&nbsp;&nbsp;&nbsp;&nbsp;率：</span>76</p>
+						<p><span>呼&nbsp;&nbsp;&nbsp;&nbsp;吸：</span>15</p>
+						<p><span>翻身次数：</span>23</p>
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

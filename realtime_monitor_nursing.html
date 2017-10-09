@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="ace/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="ace/css/font-awesome2.min.css" />
+	<link rel="stylesheet" href="ace/css/ace.min.css" />
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="ace/js/bootstrap.min.js"></script>
+	<script src="textSlider/jQuery.textSlider.js"></script>
+	<style>
+		body,html{
+			margin:0;
+			padding:0;
+		}
+		ul{list-style: none;}
+		.page-content{padding:15px 40px 0;width:85%;}
+		.pink { background: #F9243F;}
+		.green{ background-color:#8DC63F;}
+		.purple {background: #7C38BC;}
+		.title{
+			padding:20px;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.mointor{overflow:hidden;float:left;}
+		.mointor ul{
+			width: 300px;
+		}
+		.mointor ul li{
+			border: 1px solid #ccc;
+			height:80px;
+			margin-bottom: 10px;
+			padding-left: 100px;
+			position: relative;
+		}
+		.mointor span.value{
+			text-align: center;
+		}
+		.mointor span.value p.em{
+			padding-top: 8px;
+			font-size: 25px;
+		}
+		.mointor span.symbol{
+			width: 60px;
+			height:60px;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 60px;
+			position: absolute;
+			top:10px;
+			left:40px;
+		}
+		.mointor span.symbol i{
+			font-size: 25px;
+			color: #fff;
+			line-height: 60px;
+		}
+		.today{overflow: auto;float:left;}
+		.today li{
+			font-size: 16px;
+			padding:10px;
+			padding-left: 25px;
+		}
+		.clear{
+			overflow: auto;
+		}
+		.scrollText{
+			background-color: rgba(0,0,0,0.8);
+			color:#fff;
+			height:260px;
+			margin-left: 80px;
+			width:630px;
+			border:1px solid #ccc;
+			overflow: hidden;
+		}
+		.today-alarm li{
+			font-size: 18px;
+			padding: 10px;
+			padding-left:60px;
+		}
+		.scrollText2{
+			background-color: rgba(0,0,0,0.8);
+			color:#fff;
+			height:230px;
+			margin-left: 80px;
+			border:1px solid #ccc;
+			overflow: hidden;
+		}
+		#scrollDiv{
+			overflow: auto;
+		}
+		#scrollDiv2{
+			overflow: auto;
+		}
+	</style>
+	<script>
+		$(function(){
+			function alarmcount(){ 
+				var arr = ['35','37','36','38','34','33','32','31','30','39'];
+				var b = Math.floor(Math.random() * 10); 
+			    return arr[b]; 
+			}; 
+			setInterval(function(){
+				$('#alarm_count').html(alarmcount);
+			},1000); 
+			function bedcount(){ 
+				var arr = ['500/650','505/650','510/650','495/650','493/650','501/650','502/650','503/650','490/650','499/650'];
+				var b = Math.floor(Math.random() * 10); 
+			    return arr[b]; 
+			}; 
+			setInterval(function(){
+				$('#bed_count').html(bedcount);
+			},3000); 
+			function errorcount(){ 
+				var arr = ['20','21','19','18','17','22','23','25','16','24'];
+				var b = Math.floor(Math.random() * 10); 
+			    return arr[b]; 
+			}; 
+			setInterval(function(){
+				$('#error_count').html(errorcount);
+			},5000); 
+			$('#scrollDiv').textSlider({line:1,speed:1000,timer:2000});
+			$('#scrollDiv2').textSlider({line:1,speed:1000,timer:2000});
+		});
+	</script> 
+</head>
+<body>
+	<div class="clear">
+		<div class="mointor">
+			<div class="title">实时数据监控</div>
+			<ul>
+				<li>
+					<span class="symbol pink"><i class="fa fa-bell"></i></span>
+					<span class="value">
+						<p class="em" id="alarm_count">35</p>
+						<p>报警人数</p>
+					</span>
+				</li>
+				<li>
+					<span class="symbol green"><i class="fa fa-bed"></i></span>
+					<span class="value">
+						<p class="em" id="bed_count">500/650</p>
+						<p>(已用/总)床位数</p>
+					</span>
+				</li>
+				<li>
+					<span class="symbol purple"><i class="fa fa-cog"></i></span>
+					<span class="value">
+						<p class="em" id="error_count">20</p>
+						<p>故障设备数</p>
+					</span>
+				</li>
+			</ul>
+		</div>
+		<div class="today">
+			<div class="title">今日故障设备</div>
+			<div id="scrollDiv">
+				<div class="scrollText">
+					<ul>
+						<li>床位号：115-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 07:12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态备注：异常</li>
+						<li>床位号：103-3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 08:30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态备注：正在修理</li>
+						<li>床位号：204-5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 12:40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态备注：异常</li>
+						<li>床位号：308-6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 13:15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态备注：已经修理</li>
+						<li>床位号：414-7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 14:10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态备注：异常</li>
+						<li>床位号：307-9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 15:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态备注：异常</li>
+						<li>床位号：614-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 16:40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态备注：正在修理</li>
+						<li>床位号：304-2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障时间：2017-08-10 05:50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态备注：异常</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="today-alarm">
+		<div class="title">实时报警通知</div>
+		<div class="page-content">
+			<div id="scrollDiv2">
+				<div class="scrollText2">
+					<ul>
+						<li>床位号：410-3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名：李杨轩&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报警时间：2017-08-10 05:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常：呼吸</li>
+						<li>床位号：304-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名：苏中天&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报警时间：2017-08-10 08:12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常：心率</li>
+						<li>床位号：115-4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名：董丹青&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报警时间：2017-08-10 09:20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常：心率</li>
+						<li>床位号：205-5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名：高海旭&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报警时间：2017-08-10 10:15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常：呼吸</li>
+						<li>床位号：314-6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名：吴仁杰&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报警时间：2017-08-10 11:30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常：翻身次数</li>
+						<li>床位号：611-3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名：金婷雅&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报警时间：2017-08-10 12:12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;异常：心率</li>
+					</ul>
+				</div>
+			</div>
+		</div>	
+	</div>
+</body>
+</html>

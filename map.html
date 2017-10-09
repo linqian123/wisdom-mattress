@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+	<title>百度地图API的调用</title>
+	<link href="artDialog/css/ui-dialog.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="artDialog/dist/dialog-min.js"></script>
+	<script src="http://api.map.baidu.com/api?v=2.0&ak=D6IvaCP4jjo114QGvTqKOGdnrPQi9Zc3"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<style type="text/css">   
+		html,body{height:100%;margin:0px;padding:0px;font-family:"微软雅黑";overflow:hidden;}
+		header{
+			height:10%;
+			background-color:#212121;
+			line-height: 80px;
+			padding-left: 40px;
+			color:#fff;
+			font-size: 25px;
+		}
+		header a{
+			float:right;
+			padding-right: 25px; 
+			font-size:18px;
+			color: #fff;
+			text-decoration: none;
+		}
+		header a:hover{
+			color:#fff;
+		}
+		aside{
+			float:left;
+			height:90%;
+			/* width:220px; */
+			width:15%;
+			/* background-color:#E1E1E1; */
+			background-color:#3d3d3d;
+			color:#fff;
+			overflow:hidden;
+		}
+		aside ul{
+			list-style: none;
+			margin:0;
+			padding:0;
+		}
+		aside ul li{
+			font-size: 20px;
+			line-height: 4;
+			cursor: pointer;
+			text-align: center;
+			border-top:1px solid #5c5c5c;
+		}
+		aside ul li ul li{
+			font-size: 15px;
+			line-height: 3;
+		}
+		aside>ul li:last-child>ul li:last-child{
+			border-bottom:1px solid #5c5c5c;
+		}
+		aside ul li span{
+			display: block;
+		}
+		/* aside ul li span::after{
+			content:'        ∨';
+			color:#c1c1c1;
+		} */
+		aside ul li span:hover{
+			/* background-color: #C1C1C1; */
+			background-color: #303030;
+		}
+		aside ul li ul li:hover{
+			/* background-color: #C1C1C1; */
+			background-color: #303030;
+		}  
+		#container{
+			/* margin-left:220px; */
+			float:left;
+			height:90%;
+			/*width:1201px;*/
+			width:85%; 
+		} 
+	</style>   
+	<script>
+		$(function(){
+			var map = new BMap.Map("container");      
+			var point = new BMap.Point(106.614059,29.541384);   
+			map.centerAndZoom(point, 18);        
+				map.enableScrollWheelZoom(true);
+			var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});
+			var top_left_navigation = new BMap.NavigationControl();
+			map.addControl(top_left_control);        
+			map.addControl(top_left_navigation);     
+			// map.addControl(new BMap.MapTypeControl());
+			/*var marker = new BMap.Marker(point);      
+			map.addOverlay(marker);*/
+			// marker.addEventListener("click", function(){    
+			//  alert("您点击了标注");    
+			// });
+			// var opts = {    
+			//  width : 250,        
+			//  height: 100,       
+			//  title : "Hello"  
+			// }    
+			// var infoWindow = new BMap.InfoWindow("World", opts); 
+			// map.openInfoWindow(infoWindow,point);
+				/*var polyline = new BMap.Polyline([    
+			   new BMap.Point(106.614059,29.541384),    
+			   new BMap.Point(108.614059,30.541384)    
+			 ],    
+			 {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5}    
+			);    
+			map.addOverlay(polyline);*/
+			var overlays = [];
+			var geolocationControl = new BMap.GeolocationControl();
+			geolocationControl.addEventListener("locationSuccess", function(e){
+			    var address = '';
+			    address += e.addressComponent.province;
+			    address += e.addressComponent.city;
+			    address += e.addressComponent.district;
+			    address += e.addressComponent.street;
+			    alert("当前定位地址为：" + address);
+				});
+				geolocationControl.addEventListener("locationError",function(e){
+			    alert(e.message);
+				});
+				map.addControl(geolocationControl);
+				var styleOptions = {
+			    strokeColor:"red",   
+			    fillColor:"red",      
+			    strokeWeight: 3,       
+			    strokeOpacity: 0.8,	 
+			    fillOpacity: 0.6,      
+			    strokeStyle: 'solid'
+			};
+			var drawingManager = new BMapLib.DrawingManager(map, {
+			    isOpen: false, 
+			    enableDrawingTool: false, 
+			    drawingToolOptions: {
+			        anchor: BMAP_ANCHOR_TOP_RIGHT,
+			        offset: new BMap.Size(5, 5),
+			        scale:0.9,
+			        drawingModes:[
+			        	BMAP_DRAWING_MARKER,
+			        	BMAP_DRAWING_CIRCLE
+			        ] 
+			    },
+			    circleOptions: styleOptions, 
+			    polylineOptions: styleOptions, 
+			    polygonOptions: styleOptions, 
+			    rectangleOptions: styleOptions 
+			});
+			$("#setElectronicFence").on('click',function(){
+				$(this).css('background-color','#303030');
+				drawingManager.open();
+			});
+			var newPoint = null;
+			var setRadius = "";
+			var flag = false;
+			drawingManager.addEventListener('markercomplete',function(e,overlay){
+				overlays.push(overlay);         //不使用e.overlay
+				dialog({
+					title:"设置电子围栏半径",
+					content:$("#fense"),
+					okValue:"确定",
+					ok:function(){
+						var long = e.point.lng;
+				    	var lat = e.point.lat;
+				  		newPoint = new BMap.Point(long,lat);
+				  		setRadius = $('#radius').val();
+				  		if(setRadius){
+				  			var circle = new BMap.Circle(
+					    		newPoint,
+					    		setRadius,
+					    		{
+					    			strokeColor:"blue",
+					    			fillColor:"red",
+					    			strokeWeight:1,
+					    			strokeOpacity:0.1,
+					    			fillOpacity:0.2
+					    		}
+				    		);
+				    		map.addOverlay(circle);
+				    		overlays.push(circle);
+				  		};
+						$("#setElectronicFence").css('background-color','#3d3d3d');
+						drawingManager.close();
+						flag = true;
+					},
+					cancelValue:"取消",
+					cancel:function(){
+						for(var i=0; i<overlays.length; i++){
+				    		map.removeOverlay(overlays[i]);	
+				    	};
+				    	overlays.length = 0;   //确定便于后期if的判断
+						$("#setElectronicFence").css('background-color','#3d3d3d');
+						drawingManager.close();
+					}
+				}).showModal();
+			});
+			$('#reset').on('click',function(){
+				$(this).css('background-color','#303030');
+				if(overlays.length!=0){
+					for(var i=0; i<overlays.length; i++){
+			    		map.removeOverlay(overlays[i]);	
+			    	};
+			    	overlays.length = 0;
+			    	dialog({
+						title:"",
+						content:"<p>完成重置，请重新设置电子围栏</p>",
+						okValue:"确定",
+						ok:function(){
+							$('#reset').css('background-color',"#3d3d3d");
+						}
+					}).showModal();
+				}else{
+					dialog({
+						title:"",
+						content:"<p>未设置电子围栏，请先设置！</p>",
+						okValue:"确定",
+						ok:function(){
+							$('#reset').css('background-color',"#3d3d3d");
+						}
+					}).showModal();
+				};
+				flag = false;	
+			});
+			//测试电子围栏
+			map.addEventListener('click',function(e){
+				var testPoint = new BMap.Point(e.point.lng,e.point.lat);
+				var dis = map.getDistance(testPoint,newPoint).toFixed(2);
+				var isOut = parseFloat(dis)>parseFloat(setRadius)?true:false;   //字符串类型转换为number类型才可以比较大小
+				if(flag){
+					if(isOut){
+			    		alert("出界啦！")
+			    	}else{
+			    		alert("在围栏的范围内");
+			    	}
+				};
+			});
+			$("#search").on('click',function(){
+				var lng = "";
+				var lat = "";
+				var ids = Math.ceil(Math.random()*5+1);
+				$.ajax({
+					url:'http://localhost/wisdom-mattress-3/get-gpsinfo.php',
+					data:{id:ids},
+					dataType:'json',
+					success:function(data){
+						map.clearOverlays();
+						lng = data.lng;
+						lat = data.lat;
+						var point1 = new BMap.Point(lng,lat);
+						var marker = new BMap.Marker(point1);      
+						map.addOverlay(marker);
+					},
+					error:function(){
+						alert("Failed");
+					}
+				});
+			});
+			//取坐标点存入数据库模块
+			// var flag1 = false;
+			// var inlngs = "";
+			// var inlats = "";
+			// $("#setlocal").on('click',function(){
+			// 	flag1 = true;
+			// });
+			// map.addEventListener('click',function(e){
+			// 	if(flag1){
+			// 		inlngs = e.point.lng;
+			// 		inlats = e.point.lat;
+			// 		dialog({
+			// 			title:"",
+			// 			content:"确定取点",
+			// 			okValue:"确定",
+			// 			ok:function(){
+			// 				$.ajax({
+			// 					url:'http://localhost/task51/data.php',
+			// 					data:{inlng:inlngs,inlat:inlats},
+			// 					type:'POST',
+			// 					//dataType:'json',
+			// 					success:function(data){
+			// 						alert(123);
+			// 					},
+			// 					error:function(){
+			// 						alert("Failed");
+			// 					}
+			// 				});
+			// 			}
+			// 		}).showModal();
+			// 	};
+			// }); 
+		});
+	</script>
+</head>
+<body>
+	<header>
+		GPS位置信息
+		<a href="institutional-user.html">退出当前账户</a>
+	</header>
+	<aside>
+		<ul>
+			<li>
+				<span id="search">查看位置信息</span>
+				<ul>
+					<li>手环绑定人信息</li>
+					<li>手环绑定账户信息</li>
+				</ul>
+			</li>
+			<li>
+				<span id="setlocal">特定手环历史轨迹</span>
+				<ul>
+					<li>选择预设时间</li>
+					<li>设定查询时间</li>
+				</ul>
+			</li>
+			<li>
+				<span id="setElectronicFence">设定电子围栏</span>
+				<ul>
+					<li>历史出栏信息</li>
+					<li id="reset">重置</li>
+				</ul>
+			</li>
+		</ul>
+	</aside>
+	<div id="container"></div>
+	<div id="fense" style="display:none;">
+		<input type="text" id="radius" placeholder="输入围栏半径" class="form-control">
+	</div> 
+</body>
+</html>

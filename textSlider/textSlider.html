@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery插件-文字滚动</title>
+<script type="text/javascript" src="http://www.css88.com/tool/css3Preview/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jQuery.textSlider.js"></script>
+<style type="text/css">
+ul,li{margin:0;padding:0}
+#scrollDiv{ overflow:auto}
+.scrollText{width:300px;height:100px;min-height:25px;line-height:25px;border:#ccc 1px solid; float:left;overflow:hidden}
+.scrollText li{height:25px;padding-left:10px;}
+.up{ margin-left:310px; width:50px; height:50px; background:#F90}
+.down{ margin:0 0 0 310px; zoom:1; width:50px; height:50px; background:#960}
+</style>
+</head>
+<body>
+<p>一行滚动演示：</p>
+<div id="scrollDiv">
+<div class="scrollText">
+  <ul>
+    <li>这是公告标题的第一行</li>
+    <li>这是公告标题的第二行</li>
+    <li>这是公告标题的第三行</li>
+    <li>这是公告标题的第四行</li>
+    <li>这是公告标题的第五行</li>
+    <li>这是公告标题的第六行</li>
+    <li>这是公告标题的第七行</li>
+    <li>这是公告标题的第八行</li>
+    <li>这是公告标题的第9行</li>
+    <li>这是公告标题的第10行</li>
+    <li>这是公告标题的第11行</li>
+    <li>这是公告标题的第12行</li>
+  </ul>
+</div>
+</div>
+<p>多行滚动演示：</p>
+<div id="scrollDiv2">
+<div class="scrollText">
+  <ul>
+    <li>这是公告标题的第一行</li>
+    <li>这是公告标题的第二行</li>
+    <li>这是公告标题的第三行</li>
+    <li>这是公告标题的第四行</li>
+    <li>这是公告标题的第五行</li>
+    <li>这是公告标题的第六行</li>
+    <li>这是公告标题的第七行</li>
+    <li>这是公告标题的第八行</li>
+    <li>这是公告标题的第9行</li>
+    <li>这是公告标题的第10行</li>
+    <li>这是公告标题的第11行</li>
+    <li>这是公告标题的第12行</li>
+  </ul>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+        $("#scrollDiv").textSlider({line:1,speed:500,timer:3000});
+        $("#scrollDiv2").textSlider({line:2,speed:500,timer:3000});
+});
+</script>
+</body>
+</html>
